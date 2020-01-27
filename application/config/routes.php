@@ -51,4 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+//define routes for different HTTP verbs
+$route['contact']['GET'] = 'contact/index';
+$route['contact']['POST'] = 'contact/send_email';
+
