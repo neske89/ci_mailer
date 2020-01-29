@@ -1,9 +1,5 @@
 <?php
-
-
-namespace Application\Entities;
-
-
+namespace app\application\entities;
 class GeneralSettingsEntity extends BaseEntity
 {
     public $id;
@@ -16,7 +12,7 @@ class GeneralSettingsEntity extends BaseEntity
      * @param $name
      * @param $value
      */
-    public function __construct($name, $value,$id = null)
+    public function __construct($name=null, $value=null,$id = null)
     {
         $this->id = $id;
         $this->name = $name;

@@ -26,7 +26,9 @@ class Contact extends CI_Controller
 
     public function send_email()
     {
+
         $this->load->library('form_validation');
+        $this->load->model('General_Settings_model');
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('subject', 'Subject', 'required');
         $this->form_validation->set_rules('message', 'Message', 'required');
@@ -37,7 +39,8 @@ class Contact extends CI_Controller
             $recipient = $this->input->post('email');
             $subject = $this->input->post('subject');
             $message = $this->input->post('message');
-            $c = 5;
+
+            $smtpSettings = $this->General_Settings_model->get_smtp_settings();
 
         }
         $data['content'] = 'contact/contact';

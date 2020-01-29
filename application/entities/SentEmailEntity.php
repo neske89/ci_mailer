@@ -1,9 +1,5 @@
 <?php
-
-
-namespace Application\Entities;
-
-
+namespace app\application\entities;
 class SentEmailEntity extends BaseEntity
 {
     /*** @var string */

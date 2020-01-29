@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -35,6 +36,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
+$autoloader = require "./vendor/autoload.php";
 
 /*
  *---------------------------------------------------------------

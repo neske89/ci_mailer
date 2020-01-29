@@ -7,12 +7,12 @@ class Migration_Insert_Default_General_Settings extends CI_Migration
     public function up() {
         if ( $this->db->table_exists($this->_migration_table)) {
             $data = array (
-                array('id'=>1, 'name'=>'smtp_host', 'value'=>'smtp_host', 'created'=>'2016-10-06 00:00:00','modified'=> '0000-00-00 00:00:00'),
-                array('id'=>6, 'name'=>'smtp_ssl', 'value'=>'smtp_ssl', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
-                array('id'=>3, 'name'=>'smtp_port', 'value'=>'smtp_port', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
-                array('id'=>4, 'name'=>'smtp_username', 'value'=>'smtp_username', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
-                array('id'=>5, 'name'=>'smtp_password', 'value'=>'smtp_password', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
-                array('id'=>7, 'name'=>'smtp_tls', 'value'=>'smtp_tls', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00')
+                array('id'=>1, 'name'=>'smtp_host', 'value'=>'smtp.sendgrid.net', 'created'=>'2016-10-06 00:00:00','modified'=> '0000-00-00 00:00:00'),
+                array('id'=>6, 'name'=>'smtp_ssl', 'value'=>'465', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
+                array('id'=>3, 'name'=>'smtp_port', 'value'=>'25', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
+                array('id'=>4, 'name'=>'smtp_username', 'value'=>'apikey', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
+                array('id'=>5, 'name'=>'smtp_password', 'value'=>'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', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
+                array('id'=>7, 'name'=>'smtp_tls', 'value'=>'587', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00')
             );
             $this->db->insert_batch('general_settings',$data);
         }
