@@ -42,6 +42,7 @@ class Contact extends CI_Controller
 
             $smtpSettings = $this->General_Settings_model->get_smtp_settings();
 
+
         }
         $data['content'] = 'contact/contact';
         $this->load->view($this->layout, $data);

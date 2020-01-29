@@ -11,7 +11,7 @@ class Migration_Insert_Default_General_Settings extends CI_Migration
                 array('id'=>6, 'name'=>'smtp_ssl', 'value'=>'465', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
                 array('id'=>3, 'name'=>'smtp_port', 'value'=>'25', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
                 array('id'=>4, 'name'=>'smtp_username', 'value'=>'apikey', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
-                array('id'=>5, 'name'=>'smtp_password', 'value'=>'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', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
+                array('id'=>5, 'name'=>'smtp_password', 'value'=>'', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
                 array('id'=>7, 'name'=>'smtp_tls', 'value'=>'587', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00')
             );
             $this->db->insert_batch('general_settings',$data);
