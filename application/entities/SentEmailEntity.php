@@ -12,16 +12,18 @@ class SentEmailEntity extends BaseEntity
     public $body;
 
     /**
-     * GeneralSettingsEntity constructor.
-     * @param $id
-     * @param $name
-     * @param $value
+     * SentEmailEntity constructor.
+     * @param string $to_email
+     * @param string $subject
+     * @param string $body
+     * @param null $id
      */
-    public function __construct($name, $value,$id = null)
+    public function __construct($to_email, $subject, $body,$id = null)
     {
+        $this->to_email = $to_email;
+        $this->subject = $subject;
+        $this->body = $body;
         $this->id = $id;
-        $this->name = $name;
-        $this->value = $value;
     }
 
 
