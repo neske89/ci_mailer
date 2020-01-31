@@ -1,6 +1,9 @@
 <?php
 
-
+/**
+ * Class Migration_Insert_Default_General_Settings
+ * @property General_Settings_model $General_Settings_model
+ */
 class Migration_Insert_Default_General_Settings extends CI_Migration
 {
     //insert default SMTP settings as migration as they are provided in SQL file
@@ -14,7 +17,8 @@ class Migration_Insert_Default_General_Settings extends CI_Migration
                 array('id'=>5, 'name'=>'smtp_password', 'value'=>'', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00'),
                 array('id'=>7, 'name'=>'smtp_tls', 'value'=>'587', 'created'=>'2016-10-06 00:00:00','modified'=> '2016-10-06 00:00:00')
             );
-            $this->db->insert_batch('general_settings',$data);
+            $this->load->model('General_Settings_model');
+            $status =$this->General_Settings_model->insert_batch($data);
         }
         else {
             throw new \RuntimeException('general_settings table does not exist!');

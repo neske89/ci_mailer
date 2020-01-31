@@ -15,10 +15,26 @@ class General_Settings_model extends CI_Model
     }
 
     /**
+     * @param array $where
+     * @param null|integer $limit
      * @return array GeneralSettingsEntity
      * @throws Exception
      */
-    public function get_smtp_settings() {
+    public function get_smtp_settings($where =[],$limit = null,$order = []) {
+        foreach ($where as $column => $value){
+            if (is_array($value)) {
+                $this->db->where_in($column,$value);
+            }
+            else {
+                $this->db->where($column,$value);
+            }
+        }
+        foreach ($order as $column => $value){
+                $this->db->order_by($column,$value);
+        }
+        if (!empty($limit)) {
+            $this->db->limit($limit);
+        }
         $query = $this->db->get(self::TABLE);
         $results = $query->result();
         $returnArray = [];
@@ -27,6 +43,14 @@ class General_Settings_model extends CI_Model
             $returnArray[$result->name] = GeneralSettingsEntity::FromArray($result);
         }
         return $returnArray;
+    }
+
+    public function insert_batch($data) {
+        return $this->db->insert_batch(self::TABLE,$data);
+    }
+
+    public function delete($id) {
+        return $this->db->delete(self::TABLE,array('id'=>$id));
     }
 
 }

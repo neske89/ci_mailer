@@ -31,6 +31,9 @@ class Contact extends CI_Controller
     public function index()
     {
         $data['content'] = 'contact/contact';
+        $this->load->model('General_Settings_model');
+        $smtpSettings = $this->General_Settings_model->get_smtp_settings();
+
         $this->load->view($this->layout, $data);
     }
 

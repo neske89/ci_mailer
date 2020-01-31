@@ -70,6 +70,7 @@ $config['migration_auto_latest'] = FALSE;
 |
 */
 $config['migration_version'] = 20202127003832;
+//$config['migration_version'] = 0;
 //$config['migration_version'] = 20202127003035;
 
 /*
