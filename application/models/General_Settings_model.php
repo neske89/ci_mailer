@@ -2,7 +2,7 @@
 
 use app\application\entities\GeneralSettingsEntity;
 
-class General_Settings_model extends CI_Model
+class General_Settings_model extends MY_Model
 {
     CONST TABLE = 'general_settings';
     /**
@@ -11,7 +11,6 @@ class General_Settings_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
     }
 
     /**
@@ -21,20 +20,7 @@ class General_Settings_model extends CI_Model
      * @throws Exception
      */
     public function get_smtp_settings($where =[],$limit = null,$order = []) {
-        foreach ($where as $column => $value){
-            if (is_array($value)) {
-                $this->db->where_in($column,$value);
-            }
-            else {
-                $this->db->where($column,$value);
-            }
-        }
-        foreach ($order as $column => $value){
-                $this->db->order_by($column,$value);
-        }
-        if (!empty($limit)) {
-            $this->db->limit($limit);
-        }
+       $this->createQuery($where,$limit,$order);
         $query = $this->db->get(self::TABLE);
         $results = $query->result();
         $returnArray = [];
@@ -52,5 +38,11 @@ class General_Settings_model extends CI_Model
     public function delete($id) {
         return $this->db->delete(self::TABLE,array('id'=>$id));
     }
+    public function delete_batch($ids) {
+        $this->db->where_in('id',$ids);
+        return $this->db->delete(self::TABLE);
+    }
+
+
 
 }

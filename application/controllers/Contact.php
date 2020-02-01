@@ -11,13 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Contact extends CI_Controller
 {
+    //email in sendgrid account
+    CONST SENDER_EMAIL = 'nenadmilosavljevic89@gmail.com';
+
     /*** @var string */
     private $layout;
 
-    /**
-     * Migrate constructor.
-     * @param string $layout
-     */
     public function __construct()
     {
         parent::__construct();
@@ -65,11 +64,10 @@ class Contact extends CI_Controller
             );
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
-            $this->email->from('mail@nenadmilosavljevic.com');
+            $this->email->from(self::SENDER_EMAIL);
             $this->email->to($recipient);
             $this->email->subject($subject);
             $this->email->message($message);
-
             $result = $this->email->send();
             try {
                 if ($result) {
@@ -84,8 +82,6 @@ class Contact extends CI_Controller
             } catch (Exception $e) {
                 show_error($e->getMessage());
             }
-
-
         }
         $data['content'] = 'contact/contact';
         $this->load->view($this->layout, $data);
